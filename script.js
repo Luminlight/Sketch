@@ -1,25 +1,35 @@
 // Create a 16x16 grid of square divs
 // Create divs in JS
 
+// Total number of divs
+let totalDivs = 16;
+// The column & row amount
+let totalDivRoot = Math.sqrt(totalDivs);
+
 // Load div on page load
 document.body.onload = containerDiv;
 
 // Create container div
 function containerDiv() {
-  const div = document.createElement("div");
-  div.setAttribute("id", "container");
-  div.style.border = "1px solid black";
-  div.style.height = "100px";
-  div.style.width = "100px";
-  document.body.append(div);
+  const divForContainer = document.createElement("div");
+  // Add class, method 1
+  divForContainer.className = "container";
+  divForContainer.setAttribute(
+    "style",
+    `grid-template-columns: repeat(${totalDivRoot}, 1fr);`
+  );
+  document.body.append(divForContainer);
+
+  addGridDiv();
 }
 
-// Create a grid
+// Create # of grid square divs
 function addGridDiv() {
-  const div = document.createElement("div");
-  div.style.border = "1px solid red";
-  div.style.height = "10px";
-  div.style.width = "10px";
-
-  document.getElementById("container").append(div);
+  // Append divs to container div
+  for (let i = 0; i < totalDivs; i++) {
+    const gridDiv = document.createElement("div");
+    // Add class, method 2
+    gridDiv.classList.add("grid-item");
+    document.querySelector(".container").append(gridDiv);
+  }
 }
