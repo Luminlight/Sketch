@@ -1,5 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: rgb(223, 156, 156);
+  background-color: rgba(240, 88, 88, 0.623);
 }
 
 .container {
@@ -7,9 +11,17 @@ body {
   height: 600px;
   width: 600px;
   border: 1px solid black;
+  margin-left: 20%;
 }
 
 .grid-element {
   border: 1px solid rgb(137, 137, 138);
   background-color: white;
+}
+
+.grid-options {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  border: 2px solid black;
 }
