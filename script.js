@@ -1,12 +1,16 @@
-// # of divs per row and per column (5 = 5x5, or 25 divs)
-const rowColumn = 5;
-
+// Elements to be selected
 const container = document.createElement("div");
 const gridItem = document.querySelectorAll(".grid-element");
 const colorPicker = document.querySelector("#colorPicker");
 const clearGridButton = document.querySelector(".clear-grid");
+const gridSizeChoice = document.querySelector("#grid-size");
 
+// Number of rows and columns, should default to 5x5
+let rowColumn = gridSizeChoice.value;
+
+// Event listeners
 clearGridButton.addEventListener("click", clearGrid);
+gridSizeChoice.addEventListener("change", changeGridSize);
 
 function setupGrid() {
   container.style.gridTemplateColumns = `repeat(${rowColumn}, 1fr)`;
@@ -25,11 +29,15 @@ function setupGrid() {
 setupGrid();
 
 function colorDiv(e) {
-  // Color picker to be mouseover color
   e.target.style.backgroundColor = `${colorPicker.value}`;
 }
 
 function clearGrid() {
   container.innerHTML = "";
   setupGrid();
+}
+
+function changeGridSize() {
+  rowColumn = gridSizeChoice.value;
+  clearGrid();
 }
