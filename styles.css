@@ -9,7 +9,7 @@ body {
   border: 1px solid black;
 }
 
-.grid-item {
+.grid-element {
   border: 1px solid rgb(137, 137, 138);
   background-color: white;
 }
